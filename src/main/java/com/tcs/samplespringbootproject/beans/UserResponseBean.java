@@ -4,9 +4,16 @@ import java.util.List;
 
 import lombok.Data;
 
-@Data
+
 public class UserResponseBean {
+	private List<UserBean> userBean;
 	
+	public List<UserBean> getUserBean() {
+		return userBean;
+	}
+	public void setUserBean(List<UserBean> userBean) {
+		this.userBean = userBean;
+	}
 	private int statuscode;
 	private String message;
 	private String description;

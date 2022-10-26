@@ -1,7 +1,13 @@
 package com.tcs.samplespringbootproject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +36,49 @@ public class UserController {
 		return userResponseBean;
 	}
 
+	@GetMapping("/getAllUsers")
+	
+	public UserResponseBean getAllUsers() {
+		
+		UserResponseBean userResponseBean = new UserResponseBean();
+		
+		List<UserBean> userbean=userService.getAllUsers();
+		userResponseBean.setStatuscode(200);
+		userResponseBean.setMessage("sucess");
+		userResponseBean.setUserBean(userbean);
+		
+		return userResponseBean;
+	}
+	
+	@DeleteMapping("/deleteUser/{userId}")
+	public UserResponseBean deleteUser(@PathVariable("userId")int userId) {
+		boolean isDeleted=false;
+		UserResponseBean userResponseBean = new UserResponseBean();
+		 userService.deleteUser(userId);
+		 userResponseBean.setStatuscode(200);
+			userResponseBean.setMessage("sucess");
+			userResponseBean.setDescription("user deleted Successfully");
+		 return userResponseBean;
+	}
+	
+	
+	@PutMapping("/updateuser/{id}")
+	public UserResponseBean updateUser(@RequestBody UserBean userBean, @PathVariable("id") int id)
+	{
+		userService.updateUser(userBean, id);
+		
+		UserResponseBean userResponseBean = new UserResponseBean();
+		
+		
+		 userResponseBean.setStatuscode(200);
+			userResponseBean.setMessage("sucess");
+			userResponseBean.setDescription("user updated Successfully");
+			
+		 return userResponseBean;
+		
+		
+		
+	}
 	
 	
 }
