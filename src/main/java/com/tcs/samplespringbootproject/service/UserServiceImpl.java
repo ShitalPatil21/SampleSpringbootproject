@@ -9,7 +9,6 @@ import com.tcs.samplespringbootproject.beans.UserBean;
 import com.tcs.samplespringbootproject.dao.UserRepository;
 import com.tcs.samplespringbootproject.exception.UserException;
 
-@Service
 public class UserServiceImpl  implements UserService{
 
 	@Autowired

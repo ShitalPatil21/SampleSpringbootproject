@@ -3,6 +3,8 @@ package com.tcs.samplespringbootproject.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,15 +27,18 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping("/addUser")
-	public UserResponseBean register(@RequestBody UserBean userBean) {
+	public ResponseEntity<String> register(@RequestBody UserBean userBean) {
 		UserResponseBean userResponseBean = new UserResponseBean();
 		
 		userService.addUser(userBean);
 	
-		userResponseBean.setStatuscode(200);
-		userResponseBean.setMessage("sucess");
-		userResponseBean.setDescription("user Added Successfully");
-		return userResponseBean;
+		/*
+		 * userResponseBean.setStatuscode(200); userResponseBean.setMessage("sucess");
+		 * userResponseBean.setDescription("user Added Successfully"); return
+		 * userResponseBean;
+		 */
+		
+		 return (ResponseEntity<String>) ResponseEntity.status(HttpStatus.OK);
 	}
 
 	@GetMapping("/getAllUsers")
