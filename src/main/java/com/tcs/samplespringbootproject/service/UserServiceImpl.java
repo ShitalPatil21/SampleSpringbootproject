@@ -9,6 +9,7 @@ import com.tcs.samplespringbootproject.beans.UserBean;
 import com.tcs.samplespringbootproject.dao.UserRepository;
 import com.tcs.samplespringbootproject.exception.UserException;
 
+@Service
 public class UserServiceImpl  implements UserService{
 
 	@Autowired
@@ -53,6 +54,7 @@ public class UserServiceImpl  implements UserService{
 		// TODO Auto-generated method stub
 		try {
 			userDao.deleteById(UserID);
+			flag =true;
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -60,7 +62,7 @@ public class UserServiceImpl  implements UserService{
 			throw new UserException("User Not Found");
 		}
 		
-		return false;
+		return flag;
 	}
 
 	@Override

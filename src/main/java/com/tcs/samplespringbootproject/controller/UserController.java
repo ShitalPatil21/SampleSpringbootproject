@@ -27,18 +27,18 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping("/addUser")
-	public ResponseEntity<String> register(@RequestBody UserBean userBean) {
+	public UserResponseBean register(@RequestBody UserBean userBean) {
 		UserResponseBean userResponseBean = new UserResponseBean();
 		
 		userService.addUser(userBean);
 	
-		/*
-		 * userResponseBean.setStatuscode(200); userResponseBean.setMessage("sucess");
-		 * userResponseBean.setDescription("user Added Successfully"); return
-		 * userResponseBean;
-		 */
 		
-		 return (ResponseEntity<String>) ResponseEntity.status(HttpStatus.OK);
+		  userResponseBean.setStatuscode(200); userResponseBean.setMessage("sucess");
+		  userResponseBean.setDescription("user Added Successfully");
+		  return userResponseBean;
+		 
+		
+		// return (ResponseEntity<String>) ResponseEntity.status(HttpStatus.OK);
 	}
 
 	@GetMapping("/getAllUsers")
