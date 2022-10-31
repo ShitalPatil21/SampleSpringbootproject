@@ -24,7 +24,7 @@ class SamplespringbootprojectApplicationTests {
 	void contextLoads() {
 	}
 
-	@MockBean
+	@Mock
 	UserServiceImpl userServiceImpl;
 
 	
