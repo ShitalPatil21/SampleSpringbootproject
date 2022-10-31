@@ -5,9 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.tcs.samplespringbootproject.beans.UserBean;
 import com.tcs.samplespringbootproject.exception.UserException;
@@ -20,13 +24,14 @@ class SamplespringbootprojectApplicationTests {
 	void contextLoads() {
 	}
 
-	@Autowired
+	@MockBean
 	UserServiceImpl userServiceImpl;
 
+	
 	@Test
 	public void testAddUser() {
 		UserBean userBean = new UserBean();
-		userBean.setEmail("aayush1@gmail.com");
+		userBean.setEmail("aayushi@gmail.com");
 		userBean.setPassword("shitu@123");
 		userBean.setPhoneNo("566777");
 		userBean.setUserName("abc");
@@ -60,7 +65,7 @@ class SamplespringbootprojectApplicationTests {
 	
 	@Test
 	public void testDeleteUser() throws UserException {
-		boolean i =userServiceImpl.deleteUser(22);
+		boolean i =userServiceImpl.deleteUser(26);
 		assertEquals(true,i);
 	}
 	
@@ -68,7 +73,7 @@ class SamplespringbootprojectApplicationTests {
 	@Test
 	public void testDeleteUserInvalid() throws UserException {
 		assertThrows(UserException.class,()->{
-			userServiceImpl.deleteUser(7);
+			userServiceImpl.deleteUser(28);
 		});
 	}
 	
@@ -78,8 +83,8 @@ class SamplespringbootprojectApplicationTests {
 		UserBean userBean = new UserBean();
 		userBean.setEmail("sam@gmail.com");
 		userBean.setPassword("sam@123");
-		userBean.setPhoneNo("566777");
-		userBean.setUserName("abc");
+		userBean.setPhoneNo("973636363");
+		userBean.setUserName("sammy");
 		boolean isUpdate=userServiceImpl.updateUser(userBean, 16);
 		assertEquals(true, isUpdate);
 	}
