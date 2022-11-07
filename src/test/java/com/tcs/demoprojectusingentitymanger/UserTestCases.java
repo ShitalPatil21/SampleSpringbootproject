@@ -7,30 +7,19 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.tcs.demoprojectusingentitymanger.service.WelcomeService;
 
-@SpringBootTest
-
-class DemoprojectusingentitymangerApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-	
-	@MockBean	
-	WelcomeService welcomeService;
+@ExtendWith(MockitoExtension.class)
+public class UserTestCases {
+	@Autowired
+	  WelcomeService welcomeService;
 	 
-	
 	 @Test
 	 void welcomeservice() {
 		 String message=welcomeService.getWelcomeMessage();
 		 
 		 assertEquals(message, "Welcome To Application");
 	 }
-
-	
 
 }
