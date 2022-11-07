@@ -31,6 +31,8 @@ public class UserServiceImpl  implements UserService{
 
 	@Override
 	public List<UserBean> getallUsers() {
+		
+		System.out.println("Inside Service GetAlluse");
 		// TODO Auto-generated method stub
 		return UserUtility.getAllUser();
 	}

@@ -4,22 +4,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+/*import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;*/
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tcs.demoprojectusingentitymanger.service.WelcomeService;
+import com.tcs.demoprojectusingentitymanger.service.WelcomeUitlity;
 
-@ExtendWith(MockitoExtension.class)
+
 public class UserTestCases {
-	@Autowired
-	  WelcomeService welcomeService;
+	
 	 
-	 @Test
-	 void welcomeservice() {
-		 String message=welcomeService.getWelcomeMessage();
-		 
-		 assertEquals(message, "Welcome To Application");
-	 }
+	/*
+	 * @Test public void welcomeservice() {
+	 * 
+	 * PowerMockito.mockStatic(WelcomeUitlity.class);
+	 * PowerMockito.when(WelcomeUitlity.getWelcomeMessage());
+	 * 
+	 * 
+	 * String actualcall = WelcomeUitlity.getWelcomeMessage();
+	 * 
+	 * assertEquals(actualcall, "Welcome To Application"); }
+	 */
+	 
+	
 
 }
