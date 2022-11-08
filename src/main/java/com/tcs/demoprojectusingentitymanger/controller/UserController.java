@@ -18,7 +18,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/addUser")
+	@PostMapping("/addUsers")
 	public UserResponseBean register(@RequestBody UserBean userBean) {
 		UserResponseBean userResponseBean = new UserResponseBean();
 		
