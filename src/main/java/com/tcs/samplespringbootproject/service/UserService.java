@@ -13,5 +13,7 @@ public interface UserService {
 	public boolean deleteUser(int UserID);
 	
 	public boolean updateUser(UserBean userbean,int userId);
+	
+	public   List<UserBean> getUsersbystatic();
 
 }

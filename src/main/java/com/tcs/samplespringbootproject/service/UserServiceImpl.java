@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tcs.samplespringbootproject.beans.UserBean;
+import com.tcs.samplespringbootproject.controller.UserUtility;
 import com.tcs.samplespringbootproject.dao.UserRepository;
 import com.tcs.samplespringbootproject.exception.UserException;
 
@@ -92,5 +93,13 @@ public class UserServiceImpl  implements UserService{
 			throw new UserException("User Id not present");
 		}
 		return isUpdate;
+	}
+
+	@Override
+	public List<UserBean> getUsersbystatic() {
+		// TODO Auto-generated method stub
+		
+		return UserUtility.getAllUsers();
+		
 	}
 }

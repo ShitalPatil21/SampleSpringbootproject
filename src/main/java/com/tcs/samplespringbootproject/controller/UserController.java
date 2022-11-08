@@ -55,6 +55,21 @@ public class UserController {
 		return userResponseBean;
 	}
 	
+	
+@GetMapping("/getAllUsers1")
+	
+	public UserResponseBean getAllUsers1() {
+		
+		UserResponseBean userResponseBean = new UserResponseBean();
+		
+		List<UserBean> userbean=userService.getUsersbystatic();
+		userResponseBean.setStatuscode(200);
+		userResponseBean.setMessage("sucess");
+		userResponseBean.setUserBean(userbean);
+		
+		return userResponseBean;
+	}
+	
 	@DeleteMapping("/deleteUser/{userId}")
 	public UserResponseBean deleteUser(@PathVariable("userId")int userId) {
 		boolean isDeleted=false;
